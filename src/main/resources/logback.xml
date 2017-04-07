@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+    <property name="LOG_NAME" value="${catalina.base}/logs/root/root"/>
+    <property name="FILE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{0} - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} %-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_NAME}.log</File>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_NAME}.%d.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.FileAppender">
+        <File>${LOG_NAME}.error.log</File>
+        <encoder>
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <logger name="net.zhanqi" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+    <logger name="org.apache.shiro" level="WARN">
+
+    </logger>
+
+</configuration>
