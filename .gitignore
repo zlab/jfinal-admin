@@ -1,3 +1,13 @@
-/.idea/
-cas-4.iml
-/src/main/resources/hibernate.properties
+jfinal-admin.iml
+src/main/java/net/zhanqi/jfinal/admin/controller/biz/
+src/main/java/net/zhanqi/jfinal/admin/model/
+src/main/java/net/zhanqi/jfinal/admin/service/biz/
+src/main/java/net/zhanqi/jfinal/admin/util/
+src/main/java/net/zhanqi/jfinal/frame/plugin/job/
+src/main/java/net/zhanqi/jfinal/frame/plugin/zxing/
+src/main/webapp/WEB-INF/content/component/
+src/main/webapp/css/images/
+src/main/webapp/images/
+src/test/
+target/
+.idea/
